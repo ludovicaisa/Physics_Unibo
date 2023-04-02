@@ -1,0 +1,1 @@
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qwhere \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q is the input'value of the \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q-th input, \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q the weight of that input and \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q the offset value.\\E$"}

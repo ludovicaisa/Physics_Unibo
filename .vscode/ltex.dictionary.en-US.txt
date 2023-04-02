@@ -2,3 +2,7 @@ memoryless
 Pearson-Frobenius
 ergodic
 Borel
+Rosenblatt
+Hopfield
+Hebbian
+reverberatory

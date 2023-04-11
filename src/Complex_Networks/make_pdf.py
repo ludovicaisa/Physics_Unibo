@@ -2,6 +2,8 @@ import os
 from pypdf import PdfMerger
 
 files = [
+    "leggi_pdb",
+    "PCM_permute",
     "ER_networks",
 ]
 

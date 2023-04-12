@@ -7,3 +7,4 @@ Hopfield
 Hebbian
 reverberatory
 microcanonical
+bigrams

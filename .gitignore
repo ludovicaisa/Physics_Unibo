@@ -1,6 +1,7 @@
 ## Repository organization
 src/*/*.pdf
 *.dat
+*.mat
 
 
 ## Core latex/pdflatex auxiliary files:

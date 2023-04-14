@@ -2,6 +2,7 @@ import os
 from pypdf import PdfMerger
 
 files = [
+    "Pat_Rec_Lab_1",
     "simple_perceptron",
     "neuron_class",
     "scikit_intro",

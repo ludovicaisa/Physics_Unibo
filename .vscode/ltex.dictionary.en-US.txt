@@ -9,3 +9,5 @@ reverberatory
 microcanonical
 bigrams
 ChatGPT
+bigram
+logit

@@ -5,6 +5,7 @@ files = [
     "leggi_pdb",
     "PCM_permute",
     "ER_networks",
+    "real_net_analysis",
 ]
 
 merger = PdfMerger()

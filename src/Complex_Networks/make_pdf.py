@@ -6,6 +6,7 @@ files = [
     "PCM_permute",
     "ER_networks",
     "real_net_analysis",
+    "laplacian_lab_07",
 ]
 
 out_notebook = nbformat.v4.new_notebook()

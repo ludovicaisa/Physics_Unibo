@@ -12,3 +12,6 @@ ChatGPT
 bigram
 logit
 Fiedler
+Exponentiating
+Trigrams
+trigrams

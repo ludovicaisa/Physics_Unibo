@@ -16,3 +16,6 @@ Exponentiating
 Trigrams
 trigrams
 Logits
+gaussian
+Kullback-Leiber
+Hadamard

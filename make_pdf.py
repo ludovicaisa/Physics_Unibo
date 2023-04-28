@@ -18,6 +18,13 @@ Pattern_Recognition = [
     "scikit_intro",
 ]
 
+Models = [
+    "bigrams",
+    "trigrams",
+    "concatenated_network",
+    "convolutional_network",
+]
+
 out_notebook = nbformat.v4.new_notebook()
 subject = sys.argv[1].lower()
 if subject == 'cn':
@@ -26,6 +33,9 @@ if subject == 'cn':
 elif subject == 'pr':
     files = Pattern_Recognition
     outfile = 'Pattern_Recognition'
+elif subject == 'mnm':
+    files = Models
+    outfile = 'Models_and_Numerical_Methods'
 
 for file in files:
     temp_notebook = nbformat.read('./src/{}/{}.ipynb'.format(outfile, file), as_version=4)

@@ -19,3 +19,5 @@ Logits
 gaussian
 Kullback-Leiber
 Hadamard
+dimandare
+WaveNet

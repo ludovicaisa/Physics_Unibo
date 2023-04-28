@@ -3,6 +3,7 @@ import nbconvert
 
 files = [
     "Pat_Rec_Lab_1",
+    "SwissRoll_PCA_MDS_LLE_IsoMap_tSNE_UMAP",
     "simple_perceptron",
     "neuron_class",
     "scikit_intro",

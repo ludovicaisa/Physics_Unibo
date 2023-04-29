@@ -21,3 +21,4 @@ Kullback-Leiber
 Hadamard
 dimandare
 WaveNet
+Karpathy

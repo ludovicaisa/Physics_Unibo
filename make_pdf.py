@@ -42,5 +42,5 @@ for file in files:
     out_notebook.cells.extend(temp_notebook.cells)
 
 out_pdf = nbconvert.PDFExporter().from_notebook_node(out_notebook)[0]
-with open('{}.pdf'.format(outfile), 'wb') as f:
+with open('{}-LAB.pdf'.format(outfile), 'wb') as f:
     f.write(out_pdf)

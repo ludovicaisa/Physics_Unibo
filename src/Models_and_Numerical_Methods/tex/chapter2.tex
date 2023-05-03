@@ -437,14 +437,18 @@ Of course $T^{-n} = \sigma^{-n}$ is just a translation, i.e. $T^{-n}(C) = \big\{
     \end{matrix}
     \bigg\}
 \end{equation*}
-\textcolor{red}{disegnino}\\
-The measure of this set in with our Markov measure will then be:
+The measure of this set in with our Markov measure will then be (see Fig. \ref{fig:markov_line}):
 \begin{align}
     \mu(T^{-n}C \cap D) = p_{x_1} P_{x_1 x_2} \cdots P_{x_{m-1} x_m} \cdot \bigg( \sum_{z_1, \dots, z_k} P_{z_1 z_2} \cdots P_{z_{t-1} z_t = y_1} \bigg) P_{y_1 y_2} \cdots P_{y_{r-1} y_r} \nonumber \\
     =  p_{x_1} P_{x_1 x_2} \cdots P_{x_{m-1} x_m} \cdot \big( P^t\big)_{x_m y_1} P_{y_1 y_2} \cdots P_{y_{r-1} y_r}
 \end{align}
+\begin{figure}[h]
+    \centering\includegraphics[width=12cm]{img/markov_line.png}
+    \caption{Schematic depiction of our Markovian sequences. The sequence from $X_m$ to $Y_1$ is totally arbitrary.}
+    \label{fig:markov_line}
+\end{figure}
 since we must account for all possible paths from $x_m$ to $y_1$ in $t$ steps. 
-A very useful classical result is the following:
+\\A very useful classical result is the following:
 \begin{theorem}[Ergodicity for Markov chains]
 \hfill
     \begin{itemize}
@@ -459,7 +463,7 @@ Some more useful results for Markov chains' ergodicity are the following.
     \label{eq:Q_projector}
         Q = \lim_{n \rightarrow \infty} \frac{1}{n} \sum_{k=0}^{n-1} P^n
     \end{equation}
-    Such matrix is a spectral projector, i.e. it satisfies $Q^2 = Q$; moreover, it commutes with $P$, $QP = PQ$ and $\forall v$ such that $vP = v$ we have that $vQ = Q$.
+    Such matrix is a spectral projector, i.e. it satisfies $Q^2 = Q$; moreover, it commutes with $P$, $QP = PQ$ and $\forall v$ such that $vP = v$ we have that $vQ = v$.
 \end{lemma}
 The existence of $Q$ can be proven by spectral theory. By using $Q$ we can state two theorems which can result useful:
 \begin{theorem}

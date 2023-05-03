@@ -16,7 +16,7 @@ The core idea of information theory is that the "informational value" of a commu
 \\For instance, the knowledge that some particular number will not be the winning number of a lottery provides very little information, because any particular chosen number will almost certainly not win. However, knowledge that a particular number will win a lottery has high informational value because it communicates the outcome of a very low probability event.
 \\Entropy in information theory is directly analogous to the entropy in statistical thermodynamics. The analogy results when the values of the random variable designate energies of microstates, so Gibbs formula for the entropy is formally identical to Shannon's formula.
 
-\subsection{Basic properties of the Entropy}
+\subsection{Basic properties of Entropy}
 We now turn to look to some very basic but important properties of Entropy.
 \\Let's be now more precise: consider a finite set $\mathcal{B} = \{ b_1, \dots, b_l \}$, so that $|\mathcal{B}| = L$, and let $\mathcal{P(\mathcal{B})} = \{ (p_1, \dots, p_l) : \sum_j p_j = 1, \, p_j \geq 0 \}$ be the set of all probability measures on $\mathcal{B}$ such that $p(b_k) = p_k$. Given $p \in \mathcal{P(\mathcal{B})} $ let's again define 
 \begin{gather}
@@ -98,7 +98,7 @@ Let's now generalize to the case where $\mathcal{B} = \alp^n$. We define the $n-
     \label{eq:n_block_entropy}
     H_n(\mu) \equiv - \sum_{\omega_1^n \in \alp^n} \mu(\omega) \log \mu(\omega) 
 \end{equation}
-which we sometime denote equivalently as $H_n(\omega_1^n) = H(\omega_1, \dots, \omega_n)$. 
+which we sometime denote equivalently as $H_n(\omega_1^n) = H(\omega_1 \dots \omega_n)$. 
 \\Let now $\alp$ be separable in the cartesian product of two alphabets, $\alp^n = \alp^l \times \alp^r$, with $l+r=n$. Let's then denote $b \in \alp^n$ as $b=(a^l, a^r)$ with $a^l \in \alp^l$ and $a^r \in \alp^r$.
 \\Consider now $\mu: \alp^n \rightarrow [0, 1]$. We know of course that 
 \begin{equation*}
@@ -147,7 +147,7 @@ We can also generalize this result to the case of $H_{n+m}$: consider $\alp^{n+m
     H_{n+m} = & - \sum_{\omega^1 \in \alp^n, \omega_2 \in \alp^m} \mu(\omega^1, \omega^2) \log \mu(\omega^1, \omega^2) = \\ & = - \sum_{\omega^1 \in \alp^n, \omega_2 \in \alp^m} \mu(\omega^1, \omega^2) \big( \log \mu(\omega^1) + \log \mu(\omega^2 | \omega^1) \big) = \dots  =\\ & = H_n (\mu) - \sum_{\omega^1 \in \alp^n} \mu(\omega^1) H_m (\mu^{\omega^1} (\cdot))
 \end{align*}
 where the first passage comes from the fact that $\mu(\omega^1, \omega^2) = \mu(\omega^1) \mu(\omega^2 | \omega^1)$ and $\mu^{\omega^1} (\cdot)$ is the conditional entropy to $\omega^1$ as introduced before.\\
-\textit{exercise: finish the demonstration}
+\textit{exercise: finish the proof}
 \\Also, if we have $\mu: \alp^{n+1} \rightarrow \rb$ and a function $f: \alp^{n+1} \rightarrow \rb$ we can define very naturally the expectation value of $f$,
 \begin{equation*}
     \mathbb{E}_{\mu_{n+1}} [f] \equiv \sum_{\omega_1 \dots \omega_{n+1} \in \alp} \mu(\omega_1 \dots \omega_{n+1}) f(\omega_1 \dots \omega_{n+1})
@@ -224,7 +224,7 @@ The Kullback-Leibler divergence is not symmetric, but can easily be symmetrized 
     \Delta(\mu, \nu) = \frac{1}{2} d(\mu || \nu) +  \frac{1}{2} d(\nu || \mu) 
 \end{equation}
 Now, such function is symmetric and it can be proven (as we will see later on) to be positive, i.e. $\Delta=0 \Leftrightarrow \mu = \nu$ and $\Delta \geq 0$. Therefore it \textit{looks like a distance}, even though it doesn't satisfy the triangular inequality. 
-\\The relative entropy is a measure of the distance between two distributions. In statistics, it arises as an expected logarithm of the likelihood ratio.
+\\The relative entropy is a measure of the ``distance'' between two distributions. In statistics, it arises as an \textbf{expected logarithm of the likelihood ratio} (see Applications later on).
 The relative entropy $d(p||q)$ is a measure of the inefficiency of assuming
 that the distribution is $q$ when the true distribution is $p$. For example, if we knew the true distribution $p$ of the random variable, we could construct a code with average description length $H (p)$. If, instead, we used
 the code for a distribution $q$, we would need $H (p) + d(p||q)$ bits on the
@@ -304,7 +304,7 @@ and the \textbf{conditional entropy} $h(y|x)$ of the two random variables as
 \end{align}
 There exists a theorem which tells us that the joint entropy is related to the conditional entropy in a way that resembles the chain rule in analysis:
 \begin{theorem}[Chain rule]
-\label{eq:chain_rule}
+\label{th:chain_rule_entropy}
     \begin{equation}
         h(X,Y) = h(X) + h(Y|X)
     \end{equation}
@@ -320,6 +320,13 @@ While of course if $X$ and $Y$ are independent then $h(X,Y) = h(X) + h(Y)$. Othe
     \end{equation}
     with equality if and only if $X$ and $Y$ are conditional independent given $Z$.
 \end{corollary}
+Also, it's useful to state the same result for relative entropy (proof at pg. $25$ of \cite{Cover_and_Thomas}), which will come in handy later on when talking about the second law of thermodynamics.
+\begin{theorem}[chain rule for relative entropy]
+\label{th:chain_rule_crossentropy}
+        \begin{equation*}
+            d(\mu(x,y) || \nu(x,y)) = d(\mu(x) || \nu(x)) + d(\mu(y|x) || \nu(y|x)) \, .
+        \end{equation*}
+\end{theorem}
 Now we can see, thanks to the chain rule corollary, the proof of the statement \ref{eq:markov_entropy} which we recall here:
 \begin{theorem}[Markov order theorem]
     A stationary process $\mu$ is Markov of order $k$ if and only if $h_n = h_k$ , for all $n \geq k$, i.e. if and only if 
@@ -348,7 +355,15 @@ We can rewrite the definition of mutual information as (see \cite{Cover_and_Thom
     I(X:Y) = H(X) - H(X|Y) = H(Y) - H(Y|X)
 \end{equation}
 Thus, the mutual information $I (X; Y )$ is the reduction in the uncertainty
-of $X$ due to the knowledge of $Y$. By simmetry, $X$ says as much about $Y$ as $Y$ says about $X$. \\By the chain rule (\ref{eq:chain_rule}) we also have
+of $X$ due to the knowledge of $Y$. By simmetry, $X$ says as much about $Y$ as $Y$ says about $X$. 
+\\Mutual information also satisfies a chain-like rule (pg $24$ of \cite{Cover_and_Thomas})
+\begin{theorem}
+    \label{th:chain_rule_information}
+    \begin{equation*}
+        I(X_1, X_2, \dots, X_n ; Y) = \sum_{i=1}^n I(X_i;Y|X_{i-1}, X_{i-2}, \dots, X_1) \, .
+    \end{equation*}
+\end{theorem}
+By the chain rule (\ref{th:chain_rule_information}) we also have
 \begin{equation*}
     I(X:Y) = H(X) + H(Y) - H(Y|X) \, .
 \end{equation*}
@@ -441,8 +456,100 @@ There are two consequences of the log sum inequality:
     where $p(x)$ denotes the uniform probability distribution.
 \end{proof}
 
+\section{Second Law of Thermodynamics}
+\cite{Cover_and_Thomas} One of the basic laws of physics, the second law of thermodynamics, 
+states that the entropy of an isolated system is nondecreasing. We now
+explore the relationship between the second law and the entropy function
+that we defined earlier in this chapter.
+\\In statistical thermodynamics, entropy is often defined as the log of
+the number of microstates in the system. This corresponds exactly to our
+notion of entropy if all the states are equally likely. But why does entropy
+increase?\footnote{Not covered in the course, optional (but interesting)}
 
-
+We model the isolated system as a Markov chain with transitions obeying the physical laws governing the system. Implicit in this assumption is
+the notion of an overall state of the system and the fact that knowing the
+present state, the future of the system is independent of the past. In such
+a system we can find four different interpretations of the second law. It
+may come as a shock to find that the \textbf{entropy does not always increase}.
+However, \textbf{relative entropy always decreases}.
+\begin{itemize}
+    \item[1)] \textit{Relative entropy} $d(\mu || \nu)$ \textit{decreases with} $n$. 
+    \\Let's call $\mu_n$ and $\mu_n'$ two probability distributions on the state space of a Markov chain at time $n$, and let $\mu_{n+1}$ and $\mu_{n+1}'$ be $1$ be the corresponding distributions at time $n + 1$. Let the corresponding joint mass functions be denoted by $p$ ans $q$. Thus, $p(x_n, x_{n+1}) = p(x_n) r(x_{n+1}|x_n)$ and $q(x_n, x_{n+1}) = q(x_n) r(x_{n+1}|x_n)$, where $r(\cdot|\cdot)$ is the probability transition function for the Markov chain. Then by the chain rule for relative entropy (\ref{th:chain_rule_crossentropy}), we have two expansions:
+    \begin{align*}
+        D(p(x_n, x_{n+1}) || q(x_n, x_{n+1}))& =  d(p(x_n) || q(x_n)) + d(p(x_{n+1}| x_n) || q(x_{n+1}| x_n)) = \\& =  d(p(x_{n+1}) || q(x_{n+1})) + d(p(x_n| x_{n+1}) || q(x_n| x_{n+1}) ) \, .
+    \end{align*}
+    Since both $p$ and $q$ are derived from the Markov chain, the conditional probability mass functions $p(x_{n+1}| x_n)$ and $q(x_{n+1}| x_n)$ are boyh equal to $r(x_{n+1}|x_n)$ and hence\\ $d( p(x_{n+1}| x_n) || q(x_{n+1}| x_n) ) = 0$. Now using the nonnegativity of $d$ we get 
+    \begin{equation*}
+        d(p(x_n) || q(x_n)) \geq d(p(x_{n+1}) || q(x_{n+1}))
+    \end{equation*}
+    or
+    \begin{equation}
+    \label{eq:decrease_of_d}
+        d(\mu_n || \mu_n') \geq d(\mu_{n+1} || \mu_{n+1}') \, .
+    \end{equation}
+    Consequently, the distance between the probability mass functions
+    is decreasing with time $n$ for any Markov chain.
+    
+    An example of one interpretation of the preceding inequality is
+    to suppose that the tax system for the redistribution of wealth is
+    the same in Canada and in England.  Then if $\mu_n$ and $ \mu_n'$ represent
+    the distributions of wealth among people in the two countries, this
+    inequality shows that the relative entropy distance between the two
+    distributions decreases with time. The wealth distributions in Canada
+    and England become more similar.
+    \item[2)] \textit{Relative entropy} $d(\mu_n || \mu)$ \textit{between a distribution} $\mu_n$ \textit{on the states at time} $n$ \textit{and a stationary distribution} $\mu$ \textit{decreases with} $n$. 
+    \\In (\ref{eq:decrease_of_d}), $\mu_n'$ is any distribution on the states at time $n$. If we let $\mu_n'$ be instead any stationary distribution $\mu$, the distribution $\mu_{n+1}'$ at the next time is also equal to $\mu$. Hence, 
+    \begin{equation}
+        d(\mu_n || \mu) \geq d(\mu_{n+1 || \mu}) \, ,
+    \end{equation}
+    which implies that any state distribution gets closer and closer to each stationary distribution as time passes. The sequence $d(\mu_n || \mu)$ is a monotonically nonincreasing nonnegative sequence and must therefore have a limit. The limit is zero if the stationary distribution is unique, but this is more difficult to prove.
+    \item[3)] \textit{Entropy increases if the stationary distribution is uniform.} 
+    \\ In general, the fact that the relative entropy decreases does not imply that
+    the entropy increases. A simple counterexample is provided by any
+    Markov chain with a nonuniform stationary distribution. If we start this Markov chain from the uniform distribution, which already is
+    the maximum entropy distribution, the distribution will tend to the
+    stationary distribution, which has a lower entropy than the uniform.
+    Here, the entropy decreases with time.\\
+    If, however, the stationary distribution is the uniform distribution, we can express the relative entropy as 
+    \begin{equation}
+        d(\mu_n || \mu) = \log |\alp| - H(\mu_n) = \log |\alp| - H(X_n)
+    \end{equation}
+    In this case the monotonic decrease in relative entropy implies a
+    monotonic increase in entropy. This is the explanation that ties in
+    most closely with statistical thermodynamics, where all the microstates are equally likely. We now characterize processes having a
+    uniform stationary distribution.
+    \begin{definition}
+        \hfill \\
+        A probability transition matrix $P$ is called \textbf{doubly stochastic} if 
+        \begin{equation}
+            \sum_i P_{ij} = 1 \quad \forall j \qquad \quad \sum_j P_{ij} = 1 \quad \forall i
+        \end{equation}
+    \end{definition}
+    \begin{theorem}
+        \hfill \\
+        The uniform distribution is a stationary distribution of P if and only if the probability transition matrix is doubly stochastic.
+    \end{theorem}
+    \begin{proof}
+        See \cite{Cover_and_Thomas}, problem $4.1$.
+    \end{proof}
+    \item[4)] \textit{The conditional entropy} $H(X_n|X_1)$ \textit{increases with} $n$ \textit{for a stationary Markov process.} \\
+    If the Markov process is stationary, $H(X_n)$ is constant. So the entropy is nonincreasing. However, we will prove that $H(X_n|X_1)$ increases with $n$. Thus, the conditional uncertainty
+    of the future increases.
+    \begin{proof}
+        \begin{align*}
+            H(X_n|X_1) &\geq H(X_n|X_1,X_2) = \\ &= H(X_n|X_2) =\\&= H(X_{n-1}|X_1)  
+        \end{align*}
+        where the first passage comes from the fact that conditioning reduces entropy, the second is by Markovity of the process and the last by stationarity.
+    \end{proof}
+    \item[5)] \textit{Shuffles increase entropy.} \\
+    If $S$ is a shuffle (permutation) of a deck of cards and $X$ is the initial (random) position of the cards in the
+    deck, and if the choice of the shuffle $S$ is independent of $X$, then 
+    \begin{equation}
+        H(SX \geq H(X) \, ,
+    \end{equation}
+    where $SX$ is the permutation of the deck induced by the shuffle $S$ on the initial permutation $X$. 
+    \\Problem $4.3$ of \cite{Cover_and_Thomas} outlines a proof. 
+\end{itemize}
 
 
 

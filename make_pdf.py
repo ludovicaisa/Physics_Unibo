@@ -23,6 +23,7 @@ Models = [
     "trigrams",
     "concatenated_network",
     "convolutional_network",
+    "min-char-rnn",
 ]
 
 out_notebook = nbformat.v4.new_notebook()

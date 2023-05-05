@@ -13,6 +13,7 @@ Complex_Networks = [
 Pattern_Recognition = [
     "Pat_Rec_Lab_1",
     "SwissRoll_PCA_MDS_LLE_IsoMap_tSNE_UMAP",
+    "clustering_examples",
     "simple_perceptron",
     "neuron_class",
     "scikit_intro",
@@ -24,6 +25,7 @@ Models = [
     "concatenated_network",
     "convolutional_network",
     "min-char-rnn",
+    "GPT",
 ]
 
 out_notebook = nbformat.v4.new_notebook()

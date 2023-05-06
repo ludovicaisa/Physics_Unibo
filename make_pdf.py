@@ -30,6 +30,7 @@ Models = [
 
 out_notebook = nbformat.v4.new_notebook()
 subject = sys.argv[1].lower()
+outext = ".pdf"
 if subject == 'cn':
     files = Complex_Networks
     outfile = 'Complex_Networks'
@@ -39,11 +40,12 @@ elif subject == 'pr':
 elif subject == 'mnm':
     files = Models
     outfile = 'Models_and_Numerical_Methods'
+    outext = "-LAB.pdf"
 
 for file in files:
     temp_notebook = nbformat.read('./src/{}/{}.ipynb'.format(outfile, file), as_version=4)
     out_notebook.cells.extend(temp_notebook.cells)
 
 out_pdf = nbconvert.PDFExporter().from_notebook_node(out_notebook)[0]
-with open('{}-LAB.pdf'.format(outfile), 'wb') as f:
+with open(outfile+outext, 'wb') as f:
     f.write(out_pdf)

@@ -24,3 +24,4 @@ WaveNet
 Karpathy
 makemore
 GPTs
+Barabasi-Alberts

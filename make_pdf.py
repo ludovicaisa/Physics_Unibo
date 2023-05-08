@@ -8,6 +8,7 @@ Complex_Networks = [
     "ER_networks",
     "real_net_analysis",
     "laplacian_lab_07",
+    "open_network_growth_models",
 ]
 
 Pattern_Recognition = [

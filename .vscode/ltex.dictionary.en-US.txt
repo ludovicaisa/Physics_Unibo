@@ -25,3 +25,4 @@ Karpathy
 makemore
 GPTs
 Barabasi-Alberts
+softmax

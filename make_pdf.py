@@ -27,6 +27,7 @@ Models = [
     "convolutional_network",
     "min-char-rnn",
     "GPT",
+    "gpt_source",
 ]
 
 out_notebook = nbformat.v4.new_notebook()

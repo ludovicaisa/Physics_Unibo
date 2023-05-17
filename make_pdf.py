@@ -28,6 +28,7 @@ Models = [
     "min-char-rnn",
     "GPT",
     "gpt_source",
+    'GAN',
 ]
 
 out_notebook = nbformat.v4.new_notebook()

@@ -2,7 +2,8 @@
 src/*/*.pdf
 *.dat
 *.mat
-
+src/Models_and_Numerical_Methods/data/celeba/*
+*.zip
 
 ## Core latex/pdflatex auxiliary files:
 *.aux

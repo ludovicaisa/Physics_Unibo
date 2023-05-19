@@ -27,3 +27,6 @@ GPTs
 Barabasi-Alberts
 softmax
 ReLU
+decreto
+deconvolution
+GAN
